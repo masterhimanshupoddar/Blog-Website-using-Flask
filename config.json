@@ -1,0 +1,17 @@
+{
+  "params":
+  {
+      "local_server": "True",
+      "local_uri": "mysql://root:@localhost/codingthunder",
+      "prod_uri": "mysql://root:@localhost/codingthunder",
+      "gmail-user": "masterhimanshupoddar@gmail.com",
+      "gmail-password": "backupguyz",
+      "blog_name": "The Coding Thunder",
+      "login_image": "bootstrap-solid.svg",
+      "about_text": "Hi my name is Himanshu. I want to become best in all fields of computer science.",
+      "no_of_post": 5,
+      "admin_user": "himanshu",
+      "admin_password": "password",
+      "location": "static/img"
+  }
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>The Coding Thunder</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="{{ url_for('static', filename='css/clean-blog.min.css') }}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+
+</head>
+
+<body>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+  {% for category, message in messages %}
+
+		<div class="alert alert-{{category}} alert-dismissible fade show" style="background:white">
+				<center><strong>Success!</strong> {{ message }}</center>
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+		</div>
+
+  {% endfor %}
+  {% endif %}
+	{% endwith %}
+<div class="card bg-light mt-5">
+<article class="card-body mx-auto" style="max-width: 400px;">
+	<h4 class="card-title mt-3 text-center">Create Account</h4>
+	<p class="text-center">Get started with your free account</p>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-md-10 mx-auto">
+				<ul class="list-inline text-center d-flex">
+					<li class="list-inline-item">
+						<a href="#">
+							<span class="fa-stack fa-lg">
+								<i class="fas fa-circle fa-stack-2x"></i>
+								<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
+					</li>
+					<li class="list-inline-item">
+						<a href="#">
+							<span class="fa-stack fa-lg">
+								<i class="fas fa-circle fa-stack-2x"></i>
+								<i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
+					</li>
+					<li class="list-inline-item">
+						<a href="#">
+							<span class="fa-stack fa-lg">
+								<i class="fas fa-circle fa-stack-2x"></i>
+								<i class="fab fa-github fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<form name="adminreg" id="adminreg" action="/admin-reg" method="post" novalidate>
+		{{ form.csrf_token() }}
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+		 </div>
+		 {{ form.name(class_="form-control", placeholder="Username")}}
+			  </div> <!-- form-group// -->
+			<ul>
+				{% for error in form.name.errors %}
+				<li style="color:black;font-size:10px;font-family:monospace;">{{ error }}</li>
+				<style>
+		.form-control {border-color: red;}
+		</style>
+				{% endfor %}
+		</ul>
+
+
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+		{{ form.password(class_="form-control", placeholder="Create password")}}
+        </div> <!-- form-group// -->
+				<ul>
+				{% for error in form.password.errors %}
+				<li style="color:black;font-size:10px;font-family:monospace;">{{ error }}</li>
+				{% endfor %}
+			</ul>
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+		{{ form.confirm(class_="form-control", placeholder="Repeat password")}}
+    </div> <!-- form-group// -->
+		<ul>
+		{% for error in form.confirm.errors %}
+		<li style="color:black;font-size:10px;font-family:monospace;">{{ error }}</li>
+		{% endfor %}
+	</ul>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+    </div> <!-- form-group// -->
+    <p class="text-center">Have an account? <a href="{{ url_for('dashboard') }}">Log In</a> </p>
+</form>
+</article>
+</div> <!-- card.// -->
+
+<!--container end.//-->
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <!-- Custom scripts for this template -->
+  <script src="{{ url_for('static', filename='js/clean-blog.min.js') }}"></script>
+	<!-- Custom js -->
+	<script src="{{ url_for('static', filename='js/scriptadminreg.js') }}"></script>
+
+</body>
+
+</html>
